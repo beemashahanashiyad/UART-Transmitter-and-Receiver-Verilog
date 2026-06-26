@@ -1,5 +1,7 @@
 # UART Communication System in Verilog
 
+## Overview
+
 A parameterized UART (Universal Asynchronous Receiver/Transmitter) communication system designed in Verilog HDL.
 
 The project includes a configurable baud generator, UART transmitter, UART receiver, top-level integration, and a comprehensive verification testbench.
@@ -25,19 +27,7 @@ The project includes a configurable baud generator, UART transmitter, UART recei
 
 ## Project Structure
 
-rtl/
-├── baud_generator.v
-├── uart_tx.v
-├── uart_rx.v
-└── uart_top.v
-
-testbench/
-└── uart_tb.v
-
-docs/
-├── architecture/
-├── simulation/
-└── reports/
+UART-Communication-System-Verilog │ ├── rtl/ │ ├── baud_generator.v │ ├── uart_tx.v │ ├── uart_rx.v │ └── uart_top.v │ ├── testbench/ │ └── uart_tb.v │ ├── docs/ │ ├── architecture/ │ │ ├── baud_generator.png │ │ ├── uart_top_architecture.png │ │ ├── uart_tx_architecture.png │ │ ├── uart_rx_architecture.png │ │ ├── uart_tx_fsm.png │ │ └── uart_rx_fsm.png │ │ │ ├── simulation/ │ │ ├── basic_communication.png │ │ ├── busy_signal.png │ │ ├── back_to_back.png │ │ ├── random_stress_test.png │ │ ├── uart_waveform_full.png │ │ ├── uart_waveform_zoom.png │ │ └── verification_summary.png │ │ │ └── reports/ │ └── verification_results.txt │ ├── README.md
 
 ---
 
@@ -178,4 +168,4 @@ The complete verification log is available here:
 
 **Beema Shahana Shiyad**
 
-Electronics and Communication Engineering
+B.Tech Electronics and Communication Engineering
