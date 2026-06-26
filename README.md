@@ -25,26 +25,7 @@ The project includes a configurable baud generator, UART transmitter, UART recei
 
 ---
 
-# UART Communication System in Verilog
-
-A parameterized **UART (Universal Asynchronous Receiver/Transmitter)** communication system implemented in **Verilog HDL**. The project includes a configurable baud generator, UART transmitter, UART receiver, top-level integration, and a self-checking verification testbench.
-
----
-
-## Features
-
-* Parameterized Clock Frequency
-* Parameterized Baud Rate
-* Baud Tick Generator
-* UART Transmitter (TX)
-* UART Receiver (RX)
-* UART Top-Level Integration
-* Busy Signal
-* Done Signal
-* Framing Error Detection
-* Parity Error Detection
-* Self-checking Testbench
-* Multiple Verification Scenarios
+## Project Structure
 
 ---
 
@@ -83,8 +64,10 @@ UART-Communication-System-Verilog
 │   └── reports/
 │       └── verification_results.txt
 │
-└── README.md
+├── README.md
+└── LICENSE
 ```
+
 ---
 
 # System Architecture
@@ -101,127 +84,143 @@ UART-Communication-System-Verilog
 
 ---
 
-## UART Transmitter Architecture
+## UART Transmitter
 
 ![UART TX](docs/architecture/uart_tx_architecture.png)
 
 ---
 
-## UART Receiver Architecture
+## UART Receiver
 
 ![UART RX](docs/architecture/uart_rx_architecture.png)
 
 ---
 
-## FSM Diagrams
-
-### UART Transmitter FSM
+## UART Transmitter FSM
 
 ![UART TX FSM](docs/architecture/uart_tx_fsm.png)
 
-### UART Receiver FSM
+---
+
+## UART Receiver FSM
 
 ![UART RX FSM](docs/architecture/uart_rx_fsm.png)
-
-> **Note**
->
-> The FSM diagrams illustrate the logical operation of the UART transmitter and receiver. The current implementation is configured for the verification setup used in this project while remaining extensible for additional UART features.
 
 ---
 
 # Verification
 
-The design was verified using a self-checking Verilog testbench.
+The UART system is verified using a self-checking Verilog testbench that automatically validates transmitted and received data.
 
-### Verification Scenarios
+## Verification Scenarios
 
-- Basic Communication
-- Busy Signal Validation
-- Back-to-Back Frame Transmission
-- Random Stress Testing
+### 1. Basic Communication
 
----
+Verifies successful transmission and reception of multiple data patterns.
 
-## Basic Communication
+Supported test vectors:
 
-![Basic](docs/simulation/basic_communication.png)
+* 0x41
+* 0x42
+* 0x43
+* 0x00
+* 0xFF
+* 0x55
+* 0xAA
 
----
-
-## Busy Signal
-
-![Busy](docs/simulation/busy_signal.png)
-
----
-
-## Back-to-Back Frames
-
-![Back to Back](docs/simulation/back_to_back.png)
+![Basic Communication](docs/simulation/basic_communication.png)
 
 ---
 
-## Random Stress Test
+### 2. Busy Signal Validation
 
-![Random](docs/simulation/random_stress_test.png)
+Verifies correct assertion and deassertion of the transmitter busy signal during frame transmission.
 
----
-
-## Waveforms
-
-### UART Waveform (Overview)
-
-![Overview](docs/simulation/uart_waveform_full.png)
+![Busy Signal](docs/simulation/busy_signal.png)
 
 ---
 
-### UART Waveform (Zoomed)
+### 3. Back-to-Back Frame Transmission
 
-![Zoom](docs/simulation/uart_waveform_zoom.png)
+Verifies continuous UART communication without idle gaps between frames.
+
+Tested sequence:
+
+* 0x10
+* 0x20
+* 0x30
+* 0x40
+* 0x50
+* 0x60
+* 0x70
+
+![Back-to-Back Frames](docs/simulation/back_to_back.png)
 
 ---
 
-## Verification Summary
+### 4. Random Stress Test
 
-![Summary](docs/simulation/verification_summary.png)
+Randomized data transmission used to validate long-duration operation.
 
-The complete verification log is available here:
+Ten random frames are transmitted and verified automatically.
 
-📄 `docs/reports/verification_results.txt`
+![Random Stress Test](docs/simulation/random_stress_test.png)
 
 ---
 
-# Test Results
+# Simulation Waveforms
 
-| Test | Status |
-|------|--------|
-| Basic Communication | ✅ PASS |
-| Busy Signal | ✅ PASS |
-| Back-to-Back Frames | ✅ PASS |
-| Random Stress Test | ✅ PASS |
+## Complete UART Communication
+
+![UART Waveform](docs/simulation/uart_waveform_full.png)
+
+---
+
+## Zoomed View
+
+![Zoomed Waveform](docs/simulation/uart_waveform_zoom.png)
+
+---
+
+# Verification Summary
+
+* Tests Run: **24**
+* Tests Passed: **24**
+* Tests Failed: **0**
+
+**Overall Result: PASS**
+
+![Verification Summary](docs/simulation/verification_summary.png)
+
+The complete simulator log is available in:
+
+```text
+docs/reports/verification_results.txt
+```
 
 ---
 
 # Tools Used
 
-- Verilog HDL
-- Icarus Verilog
-- EPWave
-- EDA Playground
+* Verilog HDL
+* Icarus Verilog
+* EDA Playground
+* EPWave
 
 ---
 
 # Future Improvements
 
-- Configurable Data Width
-- FIFO Buffers
-- Interrupt Support
-- Hardware Synthesis Validation
-- FPGA Implementation
+* Hardware synthesis on FPGA
+* Configurable oversampling ratio
+* FIFO buffers
+* UART interrupt support
+* Flow control (RTS/CTS)
+* Extended verification using SystemVerilog/UVM
+* Support for configurable frame formats
 
 ---
 
-# Author
+## License
 
-**Beema Shahana Shiyad**
-
-B.Tech Electronics and Communication Engineering
+This project is released under the MIT License.
