@@ -1,8 +1,8 @@
 `timescale 1ns/1ps
 
 module baud_generator #(
-    parameter CLOCK_FREQ = 50_000_000,   // System clock frequency (Hz)
-    parameter BAUD_RATE  = 115200         // UART baud rate (bps)
+    parameter CLOCK_FREQ = 50_000_000,  
+    parameter BAUD_RATE  = 115200         
 )(
     input  wire clk,
     input  wire rst,
@@ -10,10 +10,8 @@ module baud_generator #(
     output reg baud_tick
 );
 
-    // Number of clock cycles per baud period
     localparam integer BAUD_DIV = CLOCK_FREQ / (BAUD_RATE * 16);
 
-    // Counter width (works for any BAUD_DIV)
     localparam integer COUNTER_WIDTH = $clog2(BAUD_DIV);
 
     reg [COUNTER_WIDTH-1:0] counter;
@@ -28,7 +26,7 @@ module baud_generator #(
 
             if (counter == BAUD_DIV-1) begin
                 counter   <= 0;
-                baud_tick <= 1'b1;     // One-clock pulse
+                baud_tick <= 1'b1;     
             end
             else begin
                 counter   <= counter + 1'b1;
