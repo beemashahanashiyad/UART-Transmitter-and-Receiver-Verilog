@@ -25,10 +25,66 @@ The project includes a configurable baud generator, UART transmitter, UART recei
 
 ---
 
-## Project Structure
+# UART Communication System in Verilog
 
-UART-Communication-System-Verilog │ ├── rtl/ │ ├── baud_generator.v │ ├── uart_tx.v │ ├── uart_rx.v │ └── uart_top.v │ ├── testbench/ │ └── uart_tb.v │ ├── docs/ │ ├── architecture/ │ │ ├── baud_generator.png │ │ ├── uart_top_architecture.png │ │ ├── uart_tx_architecture.png │ │ ├── uart_rx_architecture.png │ │ ├── uart_tx_fsm.png │ │ └── uart_rx_fsm.png │ │ │ ├── simulation/ │ │ ├── basic_communication.png │ │ ├── busy_signal.png │ │ ├── back_to_back.png │ │ ├── random_stress_test.png │ │ ├── uart_waveform_full.png │ │ ├── uart_waveform_zoom.png │ │ └── verification_summary.png │ │ │ └── reports/ │ └── verification_results.txt │ ├── README.md
+A parameterized **UART (Universal Asynchronous Receiver/Transmitter)** communication system implemented in **Verilog HDL**. The project includes a configurable baud generator, UART transmitter, UART receiver, top-level integration, and a self-checking verification testbench.
 
+---
+
+## Features
+
+* Parameterized Clock Frequency
+* Parameterized Baud Rate
+* Baud Tick Generator
+* UART Transmitter (TX)
+* UART Receiver (RX)
+* UART Top-Level Integration
+* Busy Signal
+* Done Signal
+* Framing Error Detection
+* Parity Error Detection
+* Self-checking Testbench
+* Multiple Verification Scenarios
+
+---
+
+# Project Structure
+
+```text
+UART-Communication-System-Verilog
+│
+├── rtl/
+│   ├── baud_generator.v
+│   ├── uart_tx.v
+│   ├── uart_rx.v
+│   └── uart_top.v
+│
+├── testbench/
+│   └── uart_tb.v
+│
+├── docs/
+│   ├── architecture/
+│   │   ├── baud_generator.png
+│   │   ├── uart_top_architecture.png
+│   │   ├── uart_tx_architecture.png
+│   │   ├── uart_rx_architecture.png
+│   │   ├── uart_tx_fsm.png
+│   │   └── uart_rx_fsm.png
+│   │
+│   ├── simulation/
+│   │   ├── basic_communication.png
+│   │   ├── busy_signal.png
+│   │   ├── back_to_back.png
+│   │   ├── random_stress_test.png
+│   │   ├── uart_waveform_full.png
+│   │   ├── uart_waveform_zoom.png
+│   │   └── verification_summary.png
+│   │
+│   └── reports/
+│       └── verification_results.txt
+│
+└── README.md
+```
 ---
 
 # System Architecture
