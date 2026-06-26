@@ -25,10 +25,6 @@ The project includes a configurable baud generator, UART transmitter, UART recei
 
 ---
 
-## Project Structure
-
----
-
 # Project Structure
 
 ```text
