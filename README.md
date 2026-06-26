@@ -80,143 +80,127 @@ UART-Communication-System-Verilog
 
 ---
 
-## UART Transmitter
+## UART Transmitter Architecture
 
 ![UART TX](docs/architecture/uart_tx_architecture.png)
 
 ---
 
-## UART Receiver
+## UART Receiver Architecture
 
 ![UART RX](docs/architecture/uart_rx_architecture.png)
 
 ---
 
-## UART Transmitter FSM
+## FSM Diagrams
+
+### UART Transmitter FSM
 
 ![UART TX FSM](docs/architecture/uart_tx_fsm.png)
 
----
-
-## UART Receiver FSM
+### UART Receiver FSM
 
 ![UART RX FSM](docs/architecture/uart_rx_fsm.png)
+
+> **Note**
+>
+> The FSM diagrams illustrate the logical operation of the UART transmitter and receiver. The current implementation is configured for the verification setup used in this project while remaining extensible for additional UART features.
 
 ---
 
 # Verification
 
-The UART system is verified using a self-checking Verilog testbench that automatically validates transmitted and received data.
+The design was verified using a self-checking Verilog testbench.
 
-## Verification Scenarios
+### Verification Scenarios
 
-### 1. Basic Communication
-
-Verifies successful transmission and reception of multiple data patterns.
-
-Supported test vectors:
-
-* 0x41
-* 0x42
-* 0x43
-* 0x00
-* 0xFF
-* 0x55
-* 0xAA
-
-![Basic Communication](docs/simulation/basic_communication.png)
+- Basic Communication
+- Busy Signal Validation
+- Back-to-Back Frame Transmission
+- Random Stress Testing
 
 ---
 
-### 2. Busy Signal Validation
+## Basic Communication
 
-Verifies correct assertion and deassertion of the transmitter busy signal during frame transmission.
-
-![Busy Signal](docs/simulation/busy_signal.png)
+![Basic](docs/simulation/basic_communication.png)
 
 ---
 
-### 3. Back-to-Back Frame Transmission
+## Busy Signal
 
-Verifies continuous UART communication without idle gaps between frames.
-
-Tested sequence:
-
-* 0x10
-* 0x20
-* 0x30
-* 0x40
-* 0x50
-* 0x60
-* 0x70
-
-![Back-to-Back Frames](docs/simulation/back_to_back.png)
+![Busy](docs/simulation/busy_signal.png)
 
 ---
 
-### 4. Random Stress Test
+## Back-to-Back Frames
 
-Randomized data transmission used to validate long-duration operation.
-
-Ten random frames are transmitted and verified automatically.
-
-![Random Stress Test](docs/simulation/random_stress_test.png)
+![Back to Back](docs/simulation/back_to_back.png)
 
 ---
 
-# Simulation Waveforms
+## Random Stress Test
 
-## Complete UART Communication
-
-![UART Waveform](docs/simulation/uart_waveform_full.png)
+![Random](docs/simulation/random_stress_test.png)
 
 ---
 
-## Zoomed View
+## Waveforms
 
-![Zoomed Waveform](docs/simulation/uart_waveform_zoom.png)
+### UART Waveform (Overview)
+
+![Overview](docs/simulation/uart_waveform_full.png)
 
 ---
 
-# Verification Summary
+### UART Waveform (Zoomed)
 
-* Tests Run: **24**
-* Tests Passed: **24**
-* Tests Failed: **0**
+![Zoom](docs/simulation/uart_waveform_zoom.png)
 
-**Overall Result: PASS**
+---
 
-![Verification Summary](docs/simulation/verification_summary.png)
+## Verification Summary
 
-The complete simulator log is available in:
+![Summary](docs/simulation/verification_summary.png)
 
-```text
-docs/reports/verification_results.txt
-```
+The complete verification log is available here:
+
+📄 `docs/reports/verification_results.txt`
+
+---
+
+# Test Results
+
+| Test | Status |
+|------|--------|
+| Basic Communication | ✅ PASS |
+| Busy Signal | ✅ PASS |
+| Back-to-Back Frames | ✅ PASS |
+| Random Stress Test | ✅ PASS |
 
 ---
 
 # Tools Used
 
-* Verilog HDL
-* Icarus Verilog
-* EDA Playground
-* EPWave
+- Verilog HDL
+- Icarus Verilog
+- EPWave
+- EDA Playground
 
 ---
 
 # Future Improvements
 
-* Hardware synthesis on FPGA
-* Configurable oversampling ratio
-* FIFO buffers
-* UART interrupt support
-* Flow control (RTS/CTS)
-* Extended verification using SystemVerilog/UVM
-* Support for configurable frame formats
+- Configurable Data Width
+- FIFO Buffers
+- Interrupt Support
+- Hardware Synthesis Validation
+- FPGA Implementation
 
 ---
 
-## License
+# Author
 
-This project is released under the MIT License.
+**Beema Shahana Shiyad**
+
+B.Tech Electronics and Communication Engineering
