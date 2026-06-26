@@ -25,7 +25,7 @@ The project includes a configurable baud generator, UART transmitter, UART recei
 
 ---
 
-# Project Structure
+## Project Structure
 
 ```text
 UART-Communication-System-Verilog
@@ -60,33 +60,32 @@ UART-Communication-System-Verilog
 │   └── reports/
 │       └── verification_results.txt
 │
-├── README.md
-└── LICENSE
+└── README.md
 ```
 
 ---
 
-# System Architecture
+## System Architecture
 
-## Top-Level Architecture
+### Top-Level Architecture
 
 ![UART Top](docs/architecture/uart_top_architecture.png)
 
 ---
 
-## Baud Generator
+### Baud Generator
 
 ![Baud Generator](docs/architecture/baud_generator.png)
 
 ---
 
-## UART Transmitter Architecture
+### UART Transmitter Architecture
 
 ![UART TX](docs/architecture/uart_tx_architecture.png)
 
 ---
 
-## UART Receiver Architecture
+### UART Receiver Architecture
 
 ![UART RX](docs/architecture/uart_rx_architecture.png)
 
@@ -108,7 +107,7 @@ UART-Communication-System-Verilog
 
 ---
 
-# Verification
+## Verification
 
 The design was verified using a self-checking Verilog testbench.
 
@@ -169,7 +168,7 @@ The complete verification log is available here:
 
 ---
 
-# Test Results
+## Test Results
 
 | Test | Status |
 |------|--------|
@@ -180,7 +179,7 @@ The complete verification log is available here:
 
 ---
 
-# Tools Used
+## Tools Used
 
 - Verilog HDL
 - Icarus Verilog
@@ -189,7 +188,7 @@ The complete verification log is available here:
 
 ---
 
-# Future Improvements
+## Future Improvements
 
 - Configurable Data Width
 - FIFO Buffers
@@ -199,7 +198,7 @@ The complete verification log is available here:
 
 ---
 
-# Author
+## Author
 
 **Beema Shahana Shiyad**
 
